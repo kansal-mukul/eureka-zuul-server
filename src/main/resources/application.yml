@@ -18,3 +18,7 @@ zuul:
     hello-client:
       path: /hello-client/**
       serviceId: Eureka-Hello-Client
+    zuul-server:
+      path: /zuul-server/**
+      serviceId: Zuul-Server
+     

@@ -5,16 +5,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
+@RestController
 public class ZuulClientApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ZuulClientApplication.class, args);
 	}
+	
+	@RequestMapping("/hello")
+    public String greeting() {
+        return "Hello Eureka Client Micro Service !";
+    }
 	
 	@Bean
 	public PreFilter preFilter() {
